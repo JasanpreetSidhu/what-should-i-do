@@ -11,6 +11,13 @@ function getRandomTask() {
 }
 
 function renderRandomTask() {
-	let randTask = getRandomTask();
-	document.getElementById('Hero').innerHTML = randTask;
+	const randTask = getRandomTask();
+
+	const header2 = document.createElement('h2');
+	const randTaskNode = document.createTextNode(randTask);
+	header2.appendChild(randTaskNode);
+
+	const diceImgNode = document.querySelector('section img');
+
+	document.getElementById('Hero').replaceChild(header2, diceImgNode);
 }
