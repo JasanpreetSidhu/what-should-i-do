@@ -19,5 +19,5 @@ function renderRandomTask() {
 
 	const diceImgNode = document.querySelector('section img');
 
-	document.getElementById('Hero').replaceChild(header2, diceImgNode);
+	document.getElementById('hero').replaceChild(header2, diceImgNode);
 }
