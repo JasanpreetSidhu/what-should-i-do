@@ -1,44 +1,26 @@
-function getRandomTask() {
-	let tasks = [
-		'Read Learn to Earn',
-		'Complete Brad Traversy Course',
-		'Complete DSA Course',
-		'Complete Docker K8s Course',
-		'Learn AI & ML Foundations',
-		'Practice on NoSQL databases',
-		'Practice leetcode problems',
-		'create full-stack project using linkedin learning',
-		'check google trending articles',
-		'read about recent updates in software industry',
-	];
-
-	if (tasks.length == 0) {
-		return 'No tasks in the list';
-	} else {
-		// Math.random() * num => ( 0 to 0.99999... ) * num = 0 to (num-1).99999...
-		randIndex = parseInt(Math.random() * tasks.length);
-		return tasks[randIndex];
-	}
-}
-
+/**
+ * Event handler attached to Flip the Dice button that gets a random task from server and renders it on the webpage
+ */
 async function renderRandomTask() {
+	// http response object with payload, status and other headers
 	const response = await fetch(
 		'https://random-task-selector-backend.vercel.app/'
 	);
-	const randTask = await response.text();
+	const randTask = await response.text(); // parsing the payload if sent by server in plain text
 
-	let randTaskNode = document.getElementById('task-shown');
+	let header2Node = document.getElementById('task-shown');
 
-	if (randTaskNode) {
-		randTaskNode.innerText = randTask;
+	// if header2Node exists(true), just change the random task
+	if (header2Node) {
+		header2Node.innerHTML = randTask;
 	} else {
+		// otherwise create header2Node with random task inside it and append to the dom inside the hero section
 		const header2 = document.createElement('h2');
 		header2.id = 'task-shown';
-		randTaskNode = document.createTextNode(randTask);
-		header2.appendChild(randTaskNode);
+		header2.innerHTML = randTask;
 
 		const diceImgNode = document.querySelector('section img');
-
+		// In hero section, replacing diceImgNode with header2 Node that has random task in it
 		document.getElementById('hero').replaceChild(header2, diceImgNode);
 	}
 }
