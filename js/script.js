@@ -22,9 +22,10 @@ function getRandomTask() {
 }
 
 async function renderRandomTask() {
-	const randTask = await fetch(
+	const response = await fetch(
 		'https://random-task-selector-backend.vercel.app/'
 	);
+	const randTask = await response.text();
 
 	let randTaskNode = document.getElementById('task-shown');
 
