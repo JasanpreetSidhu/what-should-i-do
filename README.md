@@ -6,7 +6,7 @@ Ever felt you have lots of things to do and often forget some things out of tons
 
 ## How it works
 
-Event handler is attached to `Flip the Dice` Buttton that sends a request to the server to retreive a random single task from list of tasks saved on the <a href="https://github.com/JasanpreetSidhu/random-task-selector-backend" target="_blank">server</a> and renders that retreived task from the server on the webpage.
+Event handler is attached to `Flip the Dice` Buttton that sends a request to the server to retreive a random single task from list of tasks saved on the [server](https://github.com/JasanpreetSidhu/random-task-selector-backend) and renders that retreived task from the server on the webpage.
 
 ## My Path Through Mistakes
 
